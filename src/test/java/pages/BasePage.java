@@ -11,9 +11,9 @@ public class BasePage {
     public WebDriverWait wait;
 
     //Constructor
-    public BasePage (WebDriver driver){
+    public BasePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver,15);
+        wait = new WebDriverWait(driver, 15);
     }
 
     //Wait Wrapper Method
@@ -22,25 +22,25 @@ public class BasePage {
     }
 
     //Click Method
-    public void click (By elementBy) {
+    public void click(By elementBy) {
         waitVisibility(elementBy);
         driver.findElement(elementBy).click();
     }
 
     //Write Text
-    public void writeText (By elementBy, String text) {
+    public void writeText(By elementBy, String text) {
         waitVisibility(elementBy);
         driver.findElement(elementBy).sendKeys(text);
     }
 
     //Read Text
-    public String readText (By elementBy) {
+    public String readText(By elementBy) {
         waitVisibility(elementBy);
         return driver.findElement(elementBy).getText();
     }
 
     //Assert
-    public void assertEquals (By elementBy, String expectedText) {
+    public void assertEquals(By elementBy, String expectedText) {
         waitVisibility(elementBy);
         Assert.assertEquals(readText(elementBy), expectedText);
 
